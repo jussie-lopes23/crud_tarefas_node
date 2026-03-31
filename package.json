@@ -1,0 +1,21 @@
+{
+  "name": "desafiocrudtarefas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jussie-lopes23/crud_tarefas_node.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/jussie-lopes23/crud_tarefas_node/issues"
+  },
+  "homepage": "https://github.com/jussie-lopes23/crud_tarefas_node#readme"
+}

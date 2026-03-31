@@ -1,0 +1,8 @@
+# Dependências do Node
+node_modules/
+
+# Arquivos do Sistema Mac
+.DS_Store
+
+# Variáveis de ambiente (segurança)
+.env
