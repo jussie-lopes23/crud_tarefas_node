@@ -50,5 +50,41 @@ export const routes = [
 
             return res.writeHead(201).end()
         }
-    }
+    },
+    {
+        method: 'PUT',
+        path: buildRoutePath('/tasks/:id'),
+        handler: (req, res) => {
+            const {id} = req.params
+            const {title, description} = req.body
+
+            const fieldsToUpdate = Object.fromEntries(
+                Object.entries({title, description}).filter(([, value]) => value != null)
+            )
+
+            const update = database.update('tasks', id, fieldsToUpdate)
+
+            if(!update){
+                return res.writeHead(404).end(JSON.stringify({message: "Tarefa não encontrada"}))
+            }
+
+            res.writeHead(204).end()
+        }
+    },
+    {
+        method: 'DELETE',
+        path: buildRoutePath('/tasks/:id'),
+        handler: (req, res) => {
+            const {id} = req.params
+            
+            const deletar = database.delete('tasks', id)
+
+            if(!deletar){
+                return res.writeHead(404).end(JSON.stringify({message: "Tarefa não encontrada para deletar"}))
+            }
+
+            res.writeHead(204).end()
+        }
+    },
+   
 ]

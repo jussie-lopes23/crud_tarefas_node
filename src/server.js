@@ -5,7 +5,7 @@ import { json } from './middlewares/json.js';
 
 const server = http.createServer(async (req, res) => {
     const {method, url} = req
-    console.log('URL que chegou no servidor:', url)
+    //console.log('URL que chegou no servidor:', url)
     await json(req, res)
 
     const route = routes.find(route => {
@@ -14,13 +14,14 @@ const server = http.createServer(async (req, res) => {
 
     if(route){
         const routeParams = req.url.match(route.path)
+        //console.log(routeParams);
 
         const {query, ...params} = routeParams.groups
 
         req.params = params
         req.query = query ? extractQueryParams(query) : {}
-
-          console.log(req.query);
+        //console.log(req.params);
+        //console.log(req.query);
 
         return route.handler(req, res)
     }
