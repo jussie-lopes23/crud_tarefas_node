@@ -72,5 +72,9 @@ export class Database{
         return false
     }
 
+    findByID(table, id){
+        return this.#database[table].find(row => row.id == id)
+    }
+
     
 }

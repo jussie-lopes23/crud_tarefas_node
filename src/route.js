@@ -86,5 +86,26 @@ export const routes = [
             res.writeHead(204).end()
         }
     },
+    {
+        method: 'PATCH',
+        path: buildRoutePath('/tasks/:id/complete'),
+        handler: (req, res) => {
+            const {id} = req.params
+            
+            const task = database.findByID('tasks', id)
+
+            if(!task){
+                return res.writeHead(404).end(JSON.stringify({message: "Tarefa não encontrada"}))
+            }
+
+            const isCompleted = task.completed_at !== null
+
+            database.update('tasks', id, {
+                completed_at: isCompleted ? null : new Date()
+            })
+
+            res.writeHead(204).end()
+        }
+    },
    
 ]

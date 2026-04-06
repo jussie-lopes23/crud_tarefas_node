@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/jussie-lopes23/crud_tarefas_node/issues"
   },
-  "homepage": "https://github.com/jussie-lopes23/crud_tarefas_node#readme"
+  "homepage": "https://github.com/jussie-lopes23/crud_tarefas_node#readme",
+  "dependencies": {
+    "csv-parse": "^6.2.1"
+  }
 }
